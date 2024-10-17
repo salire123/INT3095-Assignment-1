@@ -1,29 +1,50 @@
 import math
 class question1:
+    '''
+    This is a class for question 1
+    a, b, c are the input for the equation
+    equation() is the function for the equation
+    run() is the function for the run
+    '''
     def __init__(self, a, b, c):
         self.a = a
         self.b = b
         self.c = c
 
     def equation(self):
+        x = 0
         if self.b ** 2 == 4 * self.a * self.c :
             x = -self.b / (2 * self.a)
             return x
         elif self.b ** 2 - 4 * self.a * self.c < 0 :
-            pass
-        x = (-self.b + math.sqrt(self.b**2 - 4*self.a*self.c))/(2*self.a)
+            # idk to write
+            x = (-self.b * math.sqrt(-4 * self.a * self.c - self.b ** 2))/2 * self.a
+            return None
+        else:
+            x = (-self.b + math.sqrt(self.b**2 - 4*self.a*self.c))/(2*self.a)
         return x
     
-    def posses(self):
+    def run(self):
         if self.a == 0 or self.b == 0 or self.c == 0:
-            return ""
-        else:
-            return True
+            return "Error, input not valid"
+     
+        ans = self.equation()
+
+        return ans
+        
 
 
 class question2:
+    '''
+    This is a class for question 2
+    numberlist is the input for the number list
+    my_sum() is the function for the sum
+    my_mean() is the function for the mean
+    my_median() is the function for the median
+    my_stdev() is the function for the standard deviation
+    my_max() is the function for the max
+    '''
     def sorted_list(list):
-
         list_temp = list.copy()
         list_ans  = []
         is_list_sorted = False
@@ -103,5 +124,4 @@ class question2:
     
     def my_max(self):
         return self.numberlist[-1]
-
 
