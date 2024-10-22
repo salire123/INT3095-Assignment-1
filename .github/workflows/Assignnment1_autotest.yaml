@@ -1,3 +1,5 @@
+name: Assignment1_autotest.yaml
+
 on:
   pull_request:
     branches: [ main ]
