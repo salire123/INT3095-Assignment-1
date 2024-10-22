@@ -28,3 +28,11 @@ def test_functions_q2():
 
 
 # Test q1
+def test_functions_q1():
+
+    assert Assignment1.question1(0, None, None).run() == "Error, input not valid"
+    assert Assignment1.question1("hahaha", None, None).run() == "Error, input not valid"
+    assert Assignment1.question1(1, 3, 2).run() == ("x = (-3 ± sqrt(1))/2*1", (-1.00,-2.00))
+    assert Assignment1.question1(1, 2, 1).run() == ("x = -2/(2*1)", -1.0)
+    assert Assignment1.question1(1, 1, 3).run()[0] == "x = (-1 ± i sqrt(11))/2*1" #not check -0.50+1.66i and -0.50-1.66i idk how to write
+

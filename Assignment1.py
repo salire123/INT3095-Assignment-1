@@ -1,4 +1,5 @@
 import math
+import cmath
 class question1:
     '''
     This is a class for question 1
@@ -12,25 +13,30 @@ class question1:
         self.c = c
 
     def equation(self):
-        x = 0
-        if self.b ** 2 == 4 * self.a * self.c :
-            x = -self.b / (2 * self.a)
-            return x
-        elif self.b ** 2 - 4 * self.a * self.c < 0 :
-            # idk to write
-            x = (-self.b * math.sqrt(-4 * self.a * self.c - self.b ** 2))/2 * self.a
-            return None
-        else:
-            x = (-self.b + math.sqrt(self.b**2 - 4*self.a*self.c))/(2*self.a)
-        return x
+            discriminant = self.b ** 2 - 4 * self.a * self.c
+            if discriminant == 0:
+                x = -self.b / (2 * self.a)
+                return f"x = {-self.b}/(2*{self.a})", x
+            elif discriminant < 0:
+                x1 = (-self.b + cmath.sqrt(discriminant)) / (2 * self.a)
+                x2 = (-self.b - cmath.sqrt(discriminant)) / (2 * self.a)
+                return f"x = (-{self.b} ± i sqrt({-discriminant}))/2*{self.a}", (x1, x2)
+            else:
+                x1 = (-self.b + cmath.sqrt(discriminant)) / (2 * self.a)
+                x2 = (-self.b - cmath.sqrt(discriminant)) / (2 * self.a)
+                return f"x = (-{self.b} ± sqrt({discriminant}))/2*{self.a}", (x1, x2)
     
     def run(self):
-        if self.a == 0 or self.b == 0 or self.c == 0:
+        try:
+            if self.a == 0 or self.b == 0 or self.c == 0:
+                return "Error, input not valid"
+            if self.a == None or self.b == None or self.c == None:
+                return "Error, input not valid"
+            ans = self.equation()
+            return ans
+        except ValueError:
             return "Error, input not valid"
-     
-        ans = self.equation()
 
-        return ans
         
 
 

@@ -4,7 +4,11 @@
 
 This project is doing the Assignment 1 from Int3095
 
-## Usage
+## Use
 
-notyet
+To run this project, you need to run the following command:
+
+```
+python run_as_cli.py
+```
 
